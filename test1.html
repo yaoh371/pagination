@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .M-box a{
+            padding: 5px;
+            background: white;
+            display: inline-block;
+            margin: 10px;
+            border-radius: 4px;
+            color: gray;
+            border:1px solid #DFEBFB;
+            text-decoration: none;
+            text-align: center;
+            line-height: 20px;
+        }
+        .M-box .active{
+            padding: 5px;
+            background: blue;
+            display: inline-block;
+            margin: 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="M-box"></div>
+<script src="common/jquery.min.js"></script>
+<script src="jquery.pagination.js"></script>
+<script type="text/javascript">
+//没有省略号
+      /*  $('.M-box').pagination({
+            callback: function (api) {
+                $('.now').text(api.getCurrent());
+            }
+        }, function (api) {
+            $('.now').text(api.getCurrent());
+        });*/
+
+
+//固定页码数量，切换或者增加首页末页按钮数量都不变
+        /*$('.M-box').pagination({
+            mode: 'fixed'
+        });*/
+
+//开启第一页和最后一页的按钮,并且内容可自定义。内容默认为1和总页数。（注：如coping为false，homePage和endPage无效。）
+
+        /*$('.M-box').pagination({
+            coping: true,
+            homePage: '首页',
+            endPage: '末页',
+            prevContent: '上页',
+            nextContent: '下页'
+        });*/
+
+/*
+总数据 100条，每页显示 5条，总页数为 20页
+如果配置了数据总数和当前一页显示多少条数据，总页数会自动计算，这种情况下再配置总页数无效。
+（注：数据总数totalData和每页显示的条数showData必须同时配置，否则默认使用总页数pageCount。）*/
+        /*$('.M-box').pagination({
+            totalData: 100,
+            showData: 5,
+            coping: true
+        });*/
+
+
+//参数：jump，开启跳转到第几页，跳转按钮文本内容可修改。（如果超出最大页数会变成总页数的值）
+        /**/$('.M-box').pagination({
+            pageCount: 50,
+            jump: true,
+            coping: true,
+            keepShowPN: true,
+            isHide: true,
+            homePage: '首页',
+            endPage: '末页',
+            prevContent: '上页',
+            nextContent: '下页',
+            callback: function (api) {
+                console.log(api.getCurrent())
+            }
+        });
+
+
+//ajax请求，打开控制台查看Network
+     /*   $('.M-box').pagination({
+            pageCount: 50,
+            jump: true,
+            coping: true,
+            homePage: '首页',
+            endPage: '末页',
+            prevContent: '上页',
+            nextContent: '下页',
+            callback: function (api) {
+                var data = {
+                    page: api.getCurrent(),
+                    name: 'mss',
+                    say: 'oh'
+                };
+                $.getJSON('https://www.easy-mock.com/mock/58fff7a5739ac1685205ad5d/example/pagination#!method=get', data, function (json) {
+                    console.log(json);
+                });
+            }
+        });*/
+
+</script>
+</body>
+</html>
